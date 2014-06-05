@@ -1,4 +1,6 @@
 -- get the dimensions of the screen
+local width = display.contentWidth
+local height = display.contentHeight
 
 -- imports
 local physics = require("physics")
@@ -8,14 +10,20 @@ local storyboard = require("storyboard")
 local scene = storyboard.newScene()
 
 -- start the physics engine
+physics.start()
 
 function scene:enterScene( event )
 
 	local group = self.view
 
 	-- draw the ball and attach dynamically to the physics engine
+	local ball = display.newCircle(100, 100, 70)
+	ball:setFillColor(0.5)
+	ball.isVisible = true
+	physics.addBody(ball, "dynamic", { density=0.1, friction=0.1, bounce=0.4})
 
 	-- draw two platforms for the ball to sit on and attach it statically to the physics engine
+	local platformOne = display.newRect()
 
 	-- draw invisible borders to prevent the ball from going out of bounds (attach statically to physics engine)
 	-- left border
