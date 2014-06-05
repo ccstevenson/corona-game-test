@@ -1,0 +1,10 @@
+-- the settings file
+settings = 
+{
+	orientation =
+	{
+		-- this app runs only in landscape mode
+		default = "portrait",
+		supported = {"portrait", "portraitUpsideDown" },
+	},
+}
