@@ -1,6 +1,9 @@
 local storyboard = require("storyboard")
 
 -- draw the play button using playbutton.png
+local playButton = display.newImage("playbutton.png", 0, 0, true)
+playButton.x = 160
+playButton.y = 100
 
 local function listenerEvent( event ) -- called when the play button is touched
 	--NO TOUCHY
@@ -16,3 +19,4 @@ local function listenerEvent( event ) -- called when the play button is touched
 end
 
 -- attach the playbutton to the "touch" listener
+playButton:addEventListener("touch", listenerEvent)
